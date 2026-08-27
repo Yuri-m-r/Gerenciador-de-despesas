@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Css/global.css" />
+    <link rel="stylesheet" href="../Css/category.css" />
+    <script
+      src="https://kit.fontawesome.com/b0afcc357b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Category</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div id="nav">
+          <div class="icon" id="logo">
+            <i width="50px" class="fa-solid fa-florin-sign fa-2x"></i>
+            <div>
+              <h1>FinanControl</h1>
+              <h4>Controle Financeiro</h4>
+            </div>
+          </div>
+
+          <a
+            href="http://127.0.0.1:5500/Projetos/Gerenciador%20de%20despesas/index.html"
+          >
+            <div class="icon">
+              <i class="fa-solid fa-house"></i>
+              <h2>Dashboard</h2>
+            </div>
+          </a>
+
+          <a
+            href="http://127.0.0.1:5500/Projetos/Gerenciador%20de%20despesas/Html/category.html"
+          >
+            <div class="icon">
+              <i class="fa-solid fa-layer-group"></i>
+              <h2>Category</h2>
+            </div>
+          </a>
+        </div>
+
+        <div class="icon">
+          <div id="user-img">U</div>
+          <div>
+            <h4>Usuario</h4>
+            <p>Conta pessoal</p>
+          </div>
+        </div>
+      </header>
+
+      <section id="category-list-section">
+        <div id="category-title">
+          <div class="icon">
+            <i class="fa-solid fa-layer-group"></i>
+            <h2>Categorias cadastradas</h2>
+          </div>
+        </div>
+
+        <div id="category-page-filter">
+          <input
+            type="text"
+            name="search"
+            id="search-category"
+            placeholder="Buscar categoria..."
+          />
+          <button id="category-add" class="action-button">Adcionar categoria</button>
+          <button class="action-button">Limpar filtros</button>
+        </div>
+        <div id="category-history">
+          <div id="category-header">
+            <h4>Nome da categoria</h4>
+            <h4>Cor</h4>
+            <h4>Icone</h4>
+            <h4>Ações</h4>
+          </div>
+          <div id="category-list">
+            <p>Nenhuma categoria encontrada</p>
+          </div>
+
+          <div id="category-page"></div>
+          
+        </div>
+      </section>
+    </main>
+
+    <div id="overlay">
+      <div id="modal-category">
+        <h2>Nova Categoria</h2>
+
+        <input
+          type="text"
+          name="category-name"
+          id="category-name"
+          placeholder="Nome da categoria"
+        />
+
+        <h3>Cor da categoria</h3>
+        <input type="color" name="color" id="color" />
+
+        <h3>Escolha um ícone</h3>
+
+        <div id="icons">
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-cart-shopping">
+            <i class="fa-solid fa-cart-shopping " ></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-house">
+            <i class="fa-solid fa-house "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-car">
+            <i class="fa-solid fa-car "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-heart">
+            <i class="fa-solid fa-heart "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-lightbulb">
+            <i class="fa-solid fa-lightbulb "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-dog">
+            <i class="fa-solid fa-dog "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-burger">
+            <i class="fa-solid fa-burger "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-book">
+            <i class="fa-solid fa-book "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-graduation-cap">
+            <i class="fa-solid fa-graduation-cap "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-mobile">
+            <i class="fa-solid fa-mobile "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-briefcase">
+            <i class="fa-solid fa-briefcase "></i>
+          </label>
+        </div>
+
+        <div id="modal-buttons">
+          <button id="cancel-category">Cancelar</button>
+          <button id="save-category">Salvar</button>
+        </div>
+      </div>
+
+      <div id="modal-category-edit">
+        <h2>Editar Categoria</h2>
+
+        <input
+          type="text"
+          name="category-name"
+          id="category-name-edit"
+          placeholder="Nome da categoria"
+        />
+
+        <h3>Cor da categoria</h3>
+        <input type="color" name="color" id="color-edit" />
+
+        <h3>Escolha um ícone</h3>
+
+        <div id="icons">
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-cart-shopping">
+            <i class="fa-solid fa-cart-shopping " ></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-house">
+            <i class="fa-solid fa-house "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-car">
+            <i class="fa-solid fa-car "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-heart">
+            <i class="fa-solid fa-heart "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-lightbulb">
+            <i class="fa-solid fa-lightbulb "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-dog">
+            <i class="fa-solid fa-dog "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-burger">
+            <i class="fa-solid fa-burger "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-book">
+            <i class="fa-solid fa-book "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-graduation-cap">
+            <i class="fa-solid fa-graduation-cap "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-mobile">
+            <i class="fa-solid fa-mobile "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon-edit" data-id="fa-briefcase">
+            <i class="fa-solid fa-briefcase "></i>
+          </label>
+        </div>
+
+        <div id="modal-buttons">
+          <button id="cancel-category-edit">Cancelar</button>
+          <button id="save-category-edit">Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Js/category.js"></script>
+  </body>
+</html>

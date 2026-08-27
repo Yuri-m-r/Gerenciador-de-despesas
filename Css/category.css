@@ -1,0 +1,76 @@
+#main-screen {
+    display: grid;
+    grid-template: auto/auto auto;
+}
+
+#category-list-section,
+#expense-category {
+    margin: 10px;
+    background-color: #FFFF;
+    border: solid 1px #E5E7EB;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+#category-page-filter {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+#search,.action-button,#search-category {
+    width: 150px;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
+
+
+#category-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #E5E7EB;
+
+}
+
+#category-title p {
+    font-size: 0.7em;
+    color: gray;
+}
+
+#category-history {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+#category-header,
+.category {
+    display: grid;
+    grid-template-columns:
+        2fr 2fr 1fr 80px;
+
+    align-items: center;
+    gap: 20px;
+
+    padding: 13px 0;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+#page {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 0;
+}
+
+
+#page button {
+    width: 20px;
+    height: 20px;
+}
+

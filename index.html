@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Css/global.css" />
+    <script
+      src="https://kit.fontawesome.com/b0afcc357b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gerenciador de despesas</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div id="nav">
+          <div class="icon" id="logo">
+            <i width="50px" class="fa-solid fa-florin-sign fa-2x"></i>
+            <div>
+              <h1>FinanControl</h1>
+              <h4>Controle Financeiro</h4>
+            </div>
+          </div>
+
+          <a
+            href="http://127.0.0.1:5500/Projetos/Gerenciador%20de%20despesas/index.html"
+          >
+            <div class="icon">
+              <i class="fa-solid fa-house"></i>
+              <h2>Dashboard</h2>
+            </div>
+          </a>
+
+          <a
+            href="http://127.0.0.1:5500/Projetos/Gerenciador%20de%20despesas/Html/category.html"
+          >
+            <div class="icon">
+              <i class="fa-solid fa-layer-group"></i>
+              <h2>Category</h2>
+            </div>
+          </a>
+        </div>
+        <div id="resume">
+          <div>
+            <h2>Resumo do mês</h2>
+            <h3></h3>
+          </div>
+          <div>
+            <h4 id="revenue-resume">Receitas</h4>
+            <h3></h3>
+          </div>
+
+          <div>
+            <h4 id="expense-resume">Despesas</h4>
+            <h3></h3>
+          </div>
+
+          <div>
+            <h4 id="saldo-resume">Saldo</h4>
+            <h3></h3>
+          </div>
+        </div>
+
+        <div class="icon">
+          <div id="user-img">U</div>
+          <div>
+            <h4>Usuario</h4>
+            <p>Conta pessoal</p>
+          </div>
+        </div>
+      </header>
+
+      <section id="main-screen">
+        <section id="new-transaction">
+          <div class="icon">
+            <i class="fa-solid fa-file-invoice"></i>
+            <h1>Nova Transação</h1>
+          </div>
+
+          <div id="revenue-expense">
+            <h5>Tipo:</h5>
+            <div>
+              <label class="revenue icon">
+                <input type="radio" name="revenue-expense" id="Receita" />
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <span>Receita</span>
+              </label>
+
+              <label class="expense icon">
+                <input type="radio" name="revenue-expense" id="Despesa" />
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                <span>Despesa</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <h5>Descrição</h5>
+            <input
+              type="text"
+              name="descrição"
+              placeholder="Ex: Salário, Freelance, Supermercado..."
+              class="inputsTransaction"
+            />
+          </div>
+
+          <div>
+            <div id="add-category" class="icon">
+              <h5>Categoria:</h5>
+              <p id="new-category">+ Nova categoria</p>
+            </div>
+
+            <select name="category" id="category" class="inputsTransaction categorys">
+              <option value="" hidden>Categoria:</option>
+              
+            </select>
+          </div>
+
+          <div>
+            <h5>Valor(R$):</h5>
+            <input
+              type="number"
+              name="valor"
+              placeholder="Ex: 250,00"
+              class="inputsTransaction"
+            />
+          </div>
+
+          <div>
+            <h5>Data:</h5>
+            <input type="date" name="data" class="inputsTransaction" />
+          </div>
+
+          <button class="action-button">
+            <i class="fa-solid fa-plus"></i>
+            Adicionar transação
+          </button>
+        </section>
+
+        <section id="transaction-history-section">
+          <div id="transaction-history-title">
+            <div class="icon">
+              <i class="fa-solid fa-clipboard"></i>
+              <h2>Historico de Transações</h2>
+            </div>
+            <p></p>
+          </div>
+
+          <div id="history-filter">
+            <div class="filter-group">
+              <label for="search">Pesquisar</label>
+              <input
+                type="text"
+                id="search"
+                placeholder="Buscar transação..."
+              />
+            </div>
+
+            <div class="filter-group">
+              <label for="category-filter">Categoria</label>
+              <select name="category-filter" id="category-filter" class="categorys">
+                <option value="">Todas</option>
+            
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="type-filter">Tipo</label>
+              <select name="type-filter" id="type-filter">
+                <option value="">Todos</option>
+                <option value="Receita">Receita</option>
+                <option value="Despesa">Despesa</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Escolha um período</label>
+
+              <div class="date-group">
+                <input type="date" name="date-filter" class="date-filter" />
+                <input type="date" name="date-filter" class="date-filter" />
+              </div>
+            </div>
+
+            <div class="filter-actions">
+              <button id="search-button" class="action-button">Procurar</button>
+
+              <button id="filter-clear" class="action-button">
+                Limpar filtros
+              </button>
+            </div>
+          </div>
+
+          <div id="transaction-history">
+            <div id="transaction-history-header">
+              <h4>Descrição</h4>
+              <h4>Categoria</h4>
+              <h4>Tipo</h4>
+              <h4>Valor</h4>
+              <h4>Data</h4>
+              <h4>Ações</h4>
+            </div>
+            <!-- Gerado por js -->
+            <div id="transaction-list">
+              <p>Nenhuma transação encontrada</p>
+            </div>
+
+            <div id="page"></div>
+          </div>
+        </section>
+
+        <section id="expense-category">
+          <div>
+            <h2>Despesas por categoria</h2>
+            <div id="category-arrow"></div>
+          </div>
+
+          <div id="expense-list">
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="overlay">
+      <div id="modal-edit">
+        <div class="icon">
+          <i class="fa-solid fa-file-invoice"></i>
+          <h1>Editar Transação</h1>
+        </div>
+
+        <div id="revenue-expense">
+          <h5>Tipo:</h5>
+          <div>
+            <label class="revenue icon">
+              <input type="radio" name="revenue-expense-edit" id="Receita" />
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <span>Receita</span>
+            </label>
+
+            <label class="expense icon">
+              <input type="radio" name="revenue-expense-edit" id="Despesa" />
+              <i class="fa-solid fa-arrow-trend-down"></i>
+              <span>Despesa</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <h5>Descrição</h5>
+          <input
+            type="text"
+            name="descrição"
+            placeholder="Ex: Salário, Freelance, Supermercado..."
+            class="inputsTransaction-edit"
+          />
+        </div>
+
+        <div>
+          <div id="add-category" class="icon">
+            <h5>Categoria:</h5>
+          </div>
+
+          <select name="category" id="category" class="inputsTransaction-edit categorys">
+            <option value="" hidden>Categoria:</option>
+            
+          </select>
+        </div>
+
+        <div>
+          <h5>Valor(R$):</h5>
+          <input
+            type="number"
+            name="valor"
+            placeholder="Ex: 250,00"
+            class="inputsTransaction-edit"
+          />
+        </div>
+
+        <div>
+          <h5>Data:</h5>
+          <input type="date" name="data" class="inputsTransaction-edit" />
+        </div>
+
+        <div id="modal-buttons">
+          <button id="cancel-edit">Cancelar</button>
+          <button id="save-edit">Salvar</button>
+        </div>
+      </div>
+
+      <div id="modal-category">
+        <h2>Nova Categoria</h2>
+
+        <input
+          type="text"
+          name="category-name"
+          id="category-name"
+          placeholder="Nome da categoria"
+        />
+
+        <h3>Cor da categoria</h3>
+        <input type="color" name="color" id="color" />
+
+        <h3>Escolha um ícone</h3>
+
+        <div id="icons">
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-cart-shopping">
+            <i class="fa-solid fa-cart-shopping " ></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-house">
+            <i class="fa-solid fa-house "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-car">
+            <i class="fa-solid fa-car "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-heart">
+            <i class="fa-solid fa-heart "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-lightbulb">
+            <i class="fa-solid fa-lightbulb "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-dog">
+            <i class="fa-solid fa-dog "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-burger">
+            <i class="fa-solid fa-burger "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-book">
+            <i class="fa-solid fa-book "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-graduation-cap">
+            <i class="fa-solid fa-graduation-cap "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-mobile">
+            <i class="fa-solid fa-mobile "></i>
+          </label>
+
+          <label>
+            <input type="radio" name="icon" data-id="fa-briefcase">
+            <i class="fa-solid fa-briefcase "></i>
+          </label>
+        </div>
+
+        <div id="modal-buttons">
+          <button id="cancel-category">Cancelar</button>
+          <button id="save-category">Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./Js/category.js"></script>
+    <script src="./Js/global.js"></script>
+  </body>
+</html>
